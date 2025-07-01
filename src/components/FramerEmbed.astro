@@ -1,0 +1,24 @@
+---
+type Props = {
+	src: string;
+	title: string;
+};
+
+const { src, title } = Astro.props;
+---
+
+<div class="iframe-wrapper">
+	<div class="iframe-skeleton skeleton" id="skeleton"></div>
+	<iframe
+		src={src}
+		allowfullscreen={true}
+		title={title}
+		loading="eager"
+		onload="
+          this.classList.add('loaded');
+          const skel = document.getElementById('skeleton');
+          if (skel) skel.classList.add('fade-out');
+          setTimeout(() => skel && skel.remove(), 700);
+        "
+	></iframe>
+</div>

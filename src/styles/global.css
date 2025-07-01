@@ -1,0 +1,68 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100dvh;
+	overflow: hidden;
+}
+
+.skeleton {
+	background: linear-gradient(135deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+	background-size: 200% 100%;
+	background-position: -200% 0;
+	animation: shimmer 1.8s ease-in-out infinite;
+	opacity: 1;
+	filter: blur(8px);
+	transition:
+		opacity 0.8s ease,
+		filter 0.8s ease;
+}
+
+.skeleton.fade-out {
+	opacity: 0;
+	filter: blur(0);
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.iframe-wrapper {
+	position: relative;
+	height: 100dvh;
+	overflow: hidden;
+}
+
+.iframe-skeleton {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+iframe {
+	width: 100%;
+	height: 100vh;
+	height: 100dvh;
+	border: none;
+	display: block;
+	z-index: 2;
+	position: relative;
+	opacity: 0;
+	transform: scale(0.97);
+	filter: blur(4px);
+	transition:
+		opacity 1s ease,
+		transform 0.8s ease,
+		filter 0.8s ease;
+}
+
+iframe.loaded {
+	opacity: 1;
+	transform: scale(1);
+	filter: blur(0);
+}

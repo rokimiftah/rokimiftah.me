@@ -1,0 +1,45 @@
+---
+import "@styles/global.css";
+import { SEO } from "astro-seo";
+import { ClientRouter } from "astro:transitions";
+
+type Props = {
+	title: string;
+	description: string;
+	favicon: string;
+};
+
+const { title, description, favicon } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<SEO
+			charset="UTF-8"
+			title={title}
+			description={description}
+			canonical={Astro.site}
+			extend={{
+				meta: [
+					{
+						name: "viewport",
+						content: "width=device-width,initial-scale=1",
+					},
+				],
+				link: [
+					{ rel: "icon", href: favicon },
+					{ rel: "sitemap", href: "/sitemap-index.xml" },
+				],
+			}}
+			titleDefault="Roki Miftah Kamaludin"
+		/>
+
+		<ClientRouter />
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+{
+	"name": "rokimiftah.me",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"astro": "bunx --bun astro",
+		"build": "bunx --bun astro build",
+		"dev": "bunx --bun astro dev",
+		"preview": "bunx --bun astro preview"
+	},
+	"dependencies": {
+		"@astrojs/sitemap": "^3.4.1",
+		"astro": "^5.10.1",
+		"astro-seo": "^0.8.4"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.0.5",
+		"prettier": "^3.6.1",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-astro-organize-imports": "^0.4.11"
+	},
+	"trustedDependencies": [
+		"@biomejs/biome",
+		"@parcel/watcher",
+		"esbuild"
+	]
+}
