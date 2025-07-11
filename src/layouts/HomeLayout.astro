@@ -36,6 +36,17 @@ const { title, description, favicon } = Astro.props;
 		/>
 
 		<ClientRouter />
+
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				name: title,
+				url: Astro.site,
+			})}
+		/>
 	</head>
 	<body>
 		<main>
