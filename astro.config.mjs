@@ -1,9 +1,12 @@
 // @ts-check
 
+import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
+	adapter: cloudflare(),
+
 	devToolbar: {
 		enabled: false,
 	},
@@ -13,6 +16,8 @@ export default defineConfig({
 			lastmod: new Date(),
 		}),
 	],
+
+	output: "server",
 
 	server: {
 		host: "localhost",
